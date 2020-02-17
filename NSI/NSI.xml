@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NSI</name>
+    </assembly>
+    <members>
+        <member name="T:NSI.Controllers.AbsenceController">
+            <summary>
+            Api controler for Absence Module
+            </summary>
+        </member>
+        <member name="M:NSI.Controllers.AbsenceController.#ctor(NSI.BLL.Services.Interfaces.IAbsenceService)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="absenceService"></param>
+        </member>
+        <member name="M:NSI.Controllers.AbsenceController.GetResourceAbsence(System.Int64)">
+            <summary>
+            Get all scheduled absences for resource by ID
+            </summary>
+            <param name="id">Resource ID</param>
+            <returns> See model: Timetable Response (If Available property is 'false', resource is absent) </returns>
+        </member>
+        <member name="M:NSI.Controllers.AbsenceController.GetResourceAbsence(NSI.DataContracts.Models.Requests.IdListRequest)">
+            <summary>
+            Get all scheduled absences for multiple resources (by ID)
+            </summary>
+            <param name="idList">List of Resource IDs</param>
+            <returns> 
+            List of Timetable Responses, for each resource
+            See model: Timetable Response (If Available property is 'false', resource is absent)
+            </returns>
+        </member>
+        <member name="M:NSI.Controllers.AbsenceController.GetTimetable(NSI.DataContracts.Models.Requests.SingletonRequest)">
+            <summary>
+            Get all scheduled absences for resource in specific time range
+            </summary>
+            <param name="request"></param>
+            <returns> See model: Timetable Response (If Available property is 'false', resource is absent) </returns>
+        </member>
+        <member name="M:NSI.Controllers.AbsenceController.GetTimetableList(NSI.DataContracts.Models.Requests.CollectionRequest)">
+            <summary>
+            Get all scheduled absences for list of resources in specific time range
+            </summary>
+            <param name="requestList"></param>
+            <returns> 
+            List of Timetable Responses, for each resource
+            See model: Timetable Response (If Available property is 'false', resource is absent)
+            </returns>
+        </member>
+        <member name="T:NSI.Controllers.AvailabilityController">
+            <summary>
+            Api controller for Availability Module
+            </summary>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityController.#ctor(NSI.BLL.Services.Interfaces.IAvailabilityService)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="availabilityService"></param>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityController.GetResourceAvailability(System.Int64)">
+            <summary>
+            Get all scheduled absences for resource by ID
+            </summary>
+            <param name="id">Resource ID</param>
+            <returns> See model: Timetable Response </returns>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityController.GetResourceAvailability(NSI.DataContracts.Models.Requests.IdListRequest)">
+            <summary>
+            Get all scheduled absences for multiple resources (by ID)
+            </summary>
+            <param name="idList">List of Resource IDs</param>
+            <returns> 
+            List of Timetable Responses, for each resource
+            See model: Timetable Response 
+            </returns>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityController.GetTimetable(NSI.DataContracts.Models.Requests.SingletonRequest)">
+            <summary>
+            Get all scheduled absences for resource in specific time range
+            </summary>
+            <param name="request"></param>
+            <returns> See model: Timetable Response </returns>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityController.GetTimetableList(NSI.DataContracts.Models.Requests.CollectionRequest)">
+            <summary>
+            Get all scheduled absences for list of resources in specific time range
+            </summary>
+            <param name="requestList"></param>
+            <returns> 
+            List of Timetable Responses, for each resource
+            See model: Timetable Response 
+            </returns>
+        </member>
+        <member name="T:NSI.Controllers.AvailabilityRuleController">
+            <summary>
+            Api controller for AvailabilityRules in Availability Module
+            </summary>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityRuleController.#ctor(NSI.BLL.Services.Interfaces.IAvailabilityRuleService,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="availabilityRuleService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityRuleController.GetAll">
+            <summary>
+            Returns all availability rules (Scheduled Work Times etc.)
+            </summary>
+            <returns> See Model: Availability Rule Response </returns>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityRuleController.GetAllByResourceId(System.Int64)">
+            <summary>
+            Returns all availability rules for specific resource
+            </summary>
+            <param name="id">Resource ID</param>
+            <returns> See Model: Availability Rule Reponse</returns>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityRuleController.Create(NSI.DataContracts.Models.Requests.AvailabilityRuleRequest)">
+            <summary>
+            Creates a availability rule for given resource
+            </summary>
+            <param name="availabilityRuleRequest"></param>
+            <returns> See Model: Availability Rule Response</returns>
+        </member>
+        <member name="M:NSI.Controllers.AvailabilityRuleController.DeleteById(System.Int64)">
+            <summary>
+            Deletes availability rule for given resource
+            </summary>
+            <param name="id">Resource ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.Controllers.EventController">
+            <summary>
+            Api controller for Events in all modules (Absence/Availability/Leave)
+            </summary>
+        </member>
+        <member name="M:NSI.Controllers.EventController.#ctor(NSI.BLL.Services.Interfaces.IEventService,NSI.BLL.Services.Interfaces.IEventTypeService,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="eventService"></param>
+            <param name="eventTypeService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:NSI.Controllers.EventController.GetAll">
+            <summary>
+            Returns all events in database
+            </summary>
+            <returns> Collection of model Event Response </returns>
+        </member>
+        <member name="M:NSI.Controllers.EventController.GetById(System.Int64)">
+            <summary>
+            Get event by ID
+            </summary>
+            <param name="id">Event ID</param>
+            <returns> See Model: Event Response</returns>
+        </member>
+        <member name="M:NSI.Controllers.EventController.GetTypes">
+            <summary>
+            Returns all Event Types in database
+            </summary>
+            <returns> Collection of model Event Type Response</returns>
+        </member>
+        <member name="M:NSI.Controllers.EventController.Create(NSI.DataContracts.Models.Requests.EventRequest)">
+            <summary>
+            Creates a new Event in database
+            </summary>
+            <param name="eventRequest"></param>
+            <returns> Created event object </returns>
+        </member>
+        <member name="T:NSI.Controllers.LeaveController">
+            <summary>
+            Api controller for Leave Module
+            </summary>
+        </member>
+        <member name="M:NSI.Controllers.LeaveController.#ctor(NSI.BLL.Services.Interfaces.ILeaveService,Microsoft.Extensions.Configuration.IConfiguration,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="leaveService"></param>
+            <param name="configuration"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:NSI.Controllers.LeaveController.GetAll">
+            <summary>
+            Retrieves all Leave balances in database
+            </summary>
+            <returns> See Model: Leave Balance Response</returns>
+        </member>
+        <member name="M:NSI.Controllers.LeaveController.GetAllTransactionsByLeaveBalanceId(System.Int64)">
+            <summary>
+            Retrieves all leave balance modifications for given balance
+            </summary>
+            <param name="id">Balance ID</param>
+            <returns> See Model: Leave Transaction Response</returns>
+        </member>
+        <member name="M:NSI.Controllers.LeaveController.Create(NSI.DataContracts.Models.Requests.LeaveBalanceRequest)">
+            <summary>
+            Creates a leave balance request for resource
+            </summary>
+            <param name="leaveBalanceRequest"></param>
+            <returns> See Model: Leave Balance Response </returns>
+        </member>
+        <member name="M:NSI.Controllers.LeaveController.GetByResourceId(System.Int64)">
+            <summary>
+            Retrieves leave balance for given resource
+            </summary>
+            <param name="id">Resource ID</param>
+            <returns> See Model: Leave Balance Response</returns>
+        </member>
+        <member name="M:NSI.Controllers.LeaveController.Change(NSI.DataContracts.Models.Requests.LeaveTransactionRequest)">
+            <summary>
+            Updates already existant leave transaction
+            </summary>
+            <param name="leaveTransactionRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.Controllers.ScheduleController">
+            <summary>
+            Api controller for handling scheduled leave, absence or other events that prevent resource from being available
+            </summary>
+        </member>
+        <member name="M:NSI.Controllers.ScheduleController.#ctor(NSI.BLL.Services.Interfaces.IScheduleService,NSI.BLL.Services.Interfaces.IEventService,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="scheduleService"></param>
+            <param name="eventService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:NSI.Controllers.ScheduleController.GetAll">
+            <summary>
+            Returns all schedules in database
+            </summary>
+            <returns> Collection of Schedule Response (See Model) </returns>
+        </member>
+        <member name="M:NSI.Controllers.ScheduleController.Create(NSI.DataContracts.Models.Requests.ScheduleRequestPost)">
+            <summary>
+            Creates a schedule in database
+            </summary>
+            <param name="scheduleRequestPost"></param>
+            <returns> Collection of Schedule Response (See Model) </returns>
+        </member>
+        <member name="M:NSI.Controllers.ScheduleController.Approve(NSI.DataContracts.Models.Requests.ApproveRequest)">
+            <summary>
+            Approves schedule by ID
+            </summary>
+            <param name="approveRequest"></param>
+            <returns> See Model: Schedule Response </returns>
+        </member>
+        <member name="M:NSI.Controllers.ScheduleController.Delete(System.Int64)">
+            <summary>
+            Deletes schedule by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Method used by during runtime to add services to the container
+            </summary>
+            <param name="services"></param>
+        </member>
+    </members>
+</doc>

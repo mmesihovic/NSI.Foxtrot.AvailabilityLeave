@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NSI.DataContracts</name>
+    </assembly>
+    <members>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.ID">
+            <summary>
+            Unique Identifier for Scheduled 
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.RequestByID">
+            <summary>
+            Who requested this event that caused resource not to be available? (ID)
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.ApprovedByID">
+            <summary>
+            Who approved it?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.Approved">
+            <summary>
+            Is Event approved?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.From">
+            <summary>
+            Start Time
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.Until">
+            <summary>
+            End Time
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AbsenceDetails.Event">
+            <summary>
+            Event Details: Name and Type
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AvailabilityRuleResponse.ID">
+            <summary>
+            Unique Identifier for Availability Rule
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AvailabilityRuleResponse.ResourceID">
+            <summary>
+            Which resource does the rule apply to?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AvailabilityRuleResponse.WeekDay">
+            <summary>
+            Which day?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AvailabilityRuleResponse.FromTime">
+            <summary>
+            Start Time
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AvailabilityRuleResponse.ToTime">
+            <summary>
+            End Time
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.AvailabilityRuleResponse.Available">
+            <summary>
+            Is resource available in this period or not? (Boolean)
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.EventResponse.ID">
+            <summary>
+            Unique identifier for Event
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.EventResponse.Name">
+            <summary>
+            Name of the Event
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.EventResponse.Type">
+            <summary>
+            Event type (See Model: EventTypeResponse)
+            </summary>        
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.EventTypeResponse.ID">
+            <summary>
+            Unique identifier for Event Type
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.EventTypeResponse.Name">
+            <summary>
+            Event Type Name
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveBalanceResponse.ID">
+            <summary>
+            Unique Identifier for Leave Balance in Database
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveBalanceResponse.ResourceID">
+            <summary>
+            Which resource does Leave Balance bind to? (ID) 
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveBalanceResponse.AvailableDays">
+            <summary>
+            How much days does resource have for Leave?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveBalanceResponse.MonthlyGain">
+            <summary>
+            How much additional days does resource gain monthly?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveBalanceResponse.YearlyGain">
+            <summary>
+            How much additional days does resource gain yearly?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveTransactionResponse.ID">
+            <summary>
+            Unique identifier for Leave Transaction
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveTransactionResponse.Days">
+            <summary>
+            How much days should be taken off the Leave balance
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveTransactionResponse.ApprovedByID">
+            <summary>
+            Who approved this transaction
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.LeaveTransactionResponse.LeaveBalanceId">
+            <summary>
+            Which leave balance does this transaction refer to
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.ID">
+            <summary>
+            Unique Identifier for Schedule entry
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.ResourceID">
+            <summary>
+            Which resource does this schedule entry bind to (Unique Identified)
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.RequestByID">
+            <summary>
+            Who requested this event that caused resource not to be available? (ID)
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.ApprovedByID">
+            <summary>
+            Who approved it?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.Approved">
+            <summary>
+            Is event approved?
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.From">
+            <summary>
+            Start Date and Time
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.Until">
+            <summary>
+            End Date and Time
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.ScheduleResponse.Event">
+            <summary>
+            Event Details (See Model: EventResponse)
+            </summary>
+        </member>
+        <member name="T:NSI.DataContracts.Models.Responses.TimetableResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.TimetableResponse.ResourceID">
+            <summary>
+            Resource ID
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.TimetableResponse.Available">
+            <summary>
+            Is Resource Available? Boolean
+            </summary>
+        </member>
+        <member name="P:NSI.DataContracts.Models.Responses.TimetableResponse.AbsenceDetails">
+            <summary>
+            If Resource is not available, details for each event are included in the response
+            </summary>
+        </member>
+    </members>
+</doc>

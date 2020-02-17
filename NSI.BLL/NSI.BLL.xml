@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NSI.BLL</name>
+    </assembly>
+    <members>
+        <member name="T:NSI.BLL.Services.AbsenceService">
+            <summary>
+            Service used by Absence Controller for API, manages data in DB via repositories and database context
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.AbsenceService.#ctor(NSI.BLL.Services.Interfaces.IScheduleService,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="scheduleService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.AbsenceService.GetById(System.Int64)">
+            <summary>
+            Get existing schedules in DB for given resource
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AbsenceService.GetById(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Get all existing schedules in DB for given list of resources
+            </summary>
+            <param name="idList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AbsenceService.GetByIdAndTimeRange(NSI.DataContracts.Models.Requests.SingletonRequest)">
+            <summary>
+            Get all existing schedules in DB for given resource in defined time range
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AbsenceService.GetByIdAndTimeRange(NSI.DataContracts.Models.Requests.CollectionRequest)">
+            <summary>
+            Get all existing schedules in DB for list of given resources in defined time range
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.BLL.Services.AvailabilityRuleService">
+            <summary>
+            Service used by AvailabilityRule Controller for API, manages data in DB via repositories and database context
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityRuleService.#ctor(NSI.DAL.Repository.Interfaces.IAvailabilityRuleRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="availabilityRuleRepository"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityRuleService.GetAll">
+            <summary>
+            Get all avilability rules in Database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityRuleService.GetAllByResourceId(System.Int64)">
+            <summary>
+            Get all availability rules for given resource
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityRuleService.Create(NSI.DAL.Entities.AvailabilityRule)">
+            <summary>
+            Creates new Availability Rule in database
+            </summary>
+            <param name="availabilityRule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityRuleService.Delete(System.Int64)">
+            <summary>
+            Deletes existing availability rule with given ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.BLL.Services.AvailabilityService">
+            <summary>
+            Service used by Availability Controller for API, manages data in DB via repositories and database context
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityService.#ctor(NSI.BLL.Services.Interfaces.IScheduleService,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="scheduleService"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityService.GetById(System.Int64)">
+            <summary>
+            Get existing schedules in DB for given resource
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityService.GetById(System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            Get all existing schedules in DB for given list of resources
+            </summary>
+            <param name="idList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityService.GetByIdAndTimeRange(NSI.DataContracts.Models.Requests.SingletonRequest)">
+            <summary>
+            Get all existing schedules in DB for given resource in defined time range
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.AvailabilityService.GetByIdAndTimeRange(NSI.DataContracts.Models.Requests.CollectionRequest)">
+            <summary>
+            Get all existing schedules in DB for list of given resources in defined time range
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.BLL.Services.EventService">
+            <summary>
+            Service used by Event Controller for API, manages data in DB via repositories and database context
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.EventService.#ctor(NSI.DAL.Repository.Interfaces.IEventRepository,NSI.DAL.Repository.Interfaces.IEventTypeRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="eventRepository"></param>
+            <param name="eventTypeRepository"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.EventService.GetAll">
+            <summary>
+            Get all events in Database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.EventService.GetById(System.Int64)">
+            <summary>
+            Get event by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.EventService.Create(NSI.DAL.Entities.Event,System.Nullable{System.Int64},System.String)">
+            <summary>
+            Create new Event in Database
+            </summary>
+            <param name="_event"></param>
+            <param name="typeID"></param>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.BLL.Services.EventTypeService">
+            <summary>
+            Service used for managing Event Types in Database
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.EventTypeService.#ctor(NSI.DAL.Repository.Interfaces.IEventTypeRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="eventTypeRepository"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.EventTypeService.GetAll">
+            <summary>
+            Returns all event types in Database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.BLL.Services.LeaveService">
+            <summary>
+            Service used by Availability Controller for API, manages data in DB via repositories and database context
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.#ctor(NSI.DAL.Repository.Interfaces.ILeaveBalanceRepository,NSI.DAL.Repository.Interfaces.ILeaveTransactionRepository,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="leaveBalanceRepository"></param>
+            <param name="leaveTransactionRepository"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.GetAll">
+            <summary>
+            Get all Leave Balances in Database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.GetAllTransactionsByLeaveBalanceId(System.Int64)">
+            <summary>
+            Get all Transacations for given Leave Balance (provided ID)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.GetById(System.Int64)">
+            <summary>
+            Get leave balance by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.GetByResourceId(System.Int64)">
+            <summary>
+            Get leave balance for given resource
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.CreateOrUpdate(NSI.DataContracts.Models.Requests.LeaveBalanceRequest)">
+            <summary>
+            Creates new balance or updates new balance if balance already exists for given resource
+            </summary>
+            <param name="leaveBalanceRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.LeaveService.Change(NSI.DataContracts.Models.Requests.LeaveTransactionRequest)">
+            <summary>
+            Adds a change to leave balance in database (Transaction)
+            </summary>
+            <param name="leaveTransactionRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NSI.BLL.Services.ScheduleService">
+            <summary>
+            Service used by Schedule Controller for API, manages data in DB via repositories and database context
+            </summary>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.#ctor(NSI.DAL.Repository.Interfaces.IScheduleRepository)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="scheduleRepository"></param>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.GetAll">
+            <summary>
+            Get all Schedules in Database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.Create(NSI.DAL.Entities.ResourceSchedule)">
+            <summary>
+            Creates new Schedule entry for Resource in Database
+            </summary>
+            <param name="resourceSchedule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.Approve(NSI.DataContracts.Models.Requests.ApproveRequest)">
+            <summary>
+            Approves existing Scheduled absence/leave or event
+            </summary>
+            <param name="approveRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.GetById(System.Int64)">
+            <summary>
+            Get schedule by ID from Database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.GetByIdAndTimeRange(System.Int64,System.DateTime,System.DateTime)">
+            <summary>
+            Get schedule from Databse by ID and in given time range
+            </summary>
+            <param name="id"></param>
+            <param name="_fromDate"></param>
+            <param name="_untilDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.GetAllByResourceID(System.Int64)">
+            <summary>
+            Get all Schedules for given resource (provided ID)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NSI.BLL.Services.ScheduleService.Delete(System.Int64)">
+            <summary>
+            Deletes existing schedule in database
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

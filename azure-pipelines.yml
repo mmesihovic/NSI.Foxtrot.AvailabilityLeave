@@ -1,0 +1,81 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+pool:
+  vmImage: 'windows-latest'
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloudConnection'
+    organization: 'nsi2019'
+    scannerMode: 'MSBuild'
+    projectKey: 'Foxtrot.AvailabilityLeave'
+    projectName: 'Foxtrot.AvailabilityLeave'
+    extraProperties: |
+      sonar.exclusions=**/obj/**,**/*.dll,**/Migrations/**, NSI.Common/**
+      sonar.branch.name=$(Build.SourceBranchName)
+      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
+      sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
+
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build'
+
+- task: DotNetCoreCLI@2
+  displayName: Run Tests
+  inputs:
+    command: test
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --logger trx'
+    projects: '**/*.csproj'
+    nobuild: true
+
+- task: UseDotNet@2
+  displayName: 'Use .Net Core sdk  3.0.x'
+  inputs:
+    version: 3.0.x
+
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+    vstsFeed: '4369b8f5-caae-427e-858f-338286379aa8'
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
+  inputs:
+    command: publish
+    arguments: '--output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
+
+
+
+- task: VSBuild@1
+  displayName: 'Build solution **\*.sln'
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: 'Any CPU'
+    configuration: Debug
+  enabled: false
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: '
+  enabled: false    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+
+
